@@ -48,15 +48,6 @@ class ArticlesController < ApplicationController
 
   private
 
-    def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
-    end
-
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(articles_path) unless current_user?(@user)
-    end
-
   	def article_params
   	  params.require(:article).permit(:title, :text)	
   	end  

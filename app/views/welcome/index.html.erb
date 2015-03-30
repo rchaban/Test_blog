@@ -4,16 +4,34 @@
     <title>My Blog</title>
   </head>
   <body>
-    <div class="center hero-unit">
-      <h1>Welcome</h1>
-      <h2>
-        This is the home page for the My blog. This is my page
-        <a href="https://vk.com/id242362828">Vkontakte</a>
-      </h2>
+    <% if signed_in? %>
+      <div class="row">
+        <aside class="span4">
+          <section>
+            <%= render 'shared/user_info' %>
+          </section>
+          <section>
+            <%= render 'shared/micropost_form' %>
+          </section>
+        </aside>
+        <div class="span8">
+          <h3>Micropost Feed</h3>
+          <%= render 'shared/feed' %>
+        </div>
+      </div>
+    <% else %>
+      <div class="center hero-unit">
+        <h1>Welcome</h1>
+        <h2>
+          This is the home page for the My blog. This is my page
+          <a href="https://vk.com/id242362828">Vkontakte</a>
+        </h2>
       
-      <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-    </div>
-    <%= link_to image_tag("images.jpg", alt: "BLOG"), about_path %>
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+      </div>
+      
+      <%= link_to image_tag("images.jpg", alt: "BLOG"), about_path %>
+    <% end %>  
   
   </body>
 </html>
