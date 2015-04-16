@@ -1,0 +1,65 @@
+.row
+  %aside.span4
+    %section
+      %h1
+        = gravatar_for @user
+        = @user.name
+    %section
+      %p= link_to "Find Friends", users_path
+      %p Your Friends
+    - @user.friends.each do |friend|
+      %ul
+        - for friendship in @user.friendships
+          %li
+            = h friendship.friend.name
+        %td.adc
+          = link_to "Delete", { :controller => "friendships",
+                              :action => "delete",
+                              :id => friend.name },
+          :confirm => "Really delete friendship with #{friend.name}?"
+    - unless @user.inverse_friendships.empty?
+      %tr
+        %th.text-success{:align => "left", :colspan => "3"}
+          = pluralize(@user.inverse_friendships.count, "requested friend")
+      - @user.inverse_friendships.each do |requester|
+        %tr
+          %td.ul_column
+            =requester.name
+          %td.adc
+            = link_to "Accept", {:controller => "friendships",
+                                :action => "accept",
+                                :id => requester.name}
+            |
+            =link_to "Decline", { :controller => "friendships",
+                                :action => "decline",
+                                :id => requester.name },
+              :confirm => "Really decline friendship with #{requester.name}?"
+    - unless @user.inverse_friends.empty?
+      %tr
+        %th.text-success{:align => "left", :colspan => "3"}
+          = pluralize(@user.inverse_friends.count, "pending friend")
+      - @user.inverse_friends.each do |pending_friend|
+        %tr
+          %td.ul_column
+            = pending_friend.name
+          %td.adc
+            = link_to "Cancel request", { :controller => "friendships",
+                                        :action => "cancel",
+                                        :id => pending_friend.name },
+              :confirm => "Cancel friendship request?"
+    %section
+      %p Users Who Have Befriended You
+      %ul
+        - for user in @user.inverse_friends
+          %li= h user.name
+  .span8
+    - if @user.microposts.any?
+      %h3
+        Microposts (#{@user.microposts.count})
+      %ol.microposts
+        = render @microposts
+      = will_paginate @microposts
+%p
+  = @user.email
+%h2
+  = link_to 'My Blog', controller: 'articles'

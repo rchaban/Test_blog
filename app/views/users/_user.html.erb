@@ -5,4 +5,10 @@
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
+  <% if current_user && !current_user?(user) %>
+    | <p>    
+        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>  
+        <div class="clear"></div>  
+      </p>    
+  <% end %>
 </li>
