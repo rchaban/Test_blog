@@ -21,7 +21,7 @@
     = link_to 'Request friendship', { :controller => 'friendship', :action => 'create', :id => @user.id },
     data: { confirm: 'Send friend request?' }, class: 'btn btn-primary'
     %br
-  - unless status
+  - if status
     - case status
       - when 'requested'
         = @friend.name + ' would like to be your friend.'
