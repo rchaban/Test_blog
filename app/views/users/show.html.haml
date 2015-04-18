@@ -1,0 +1,38 @@
+.row
+  %aside.span4
+    %section
+      %h1
+        = gravatar_for @user
+        = @user.name
+  .span8
+    - if @user.microposts.any?
+      %h3
+        Microposts (#{@user.microposts.count})
+      %ol.microposts
+        = render @microposts
+      = will_paginate @microposts
+%p
+  = @user.email
+
+- if @user != @logged_in_user and @user != @friend
+  - status = friendship_status(@user, @friend)
+  - unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user)
+    %br
+    = link_to 'Request friendship', { :controller => 'friendship', :action => 'create', :id => @user.id },
+    data: { confirm: 'Send friend request?' }, class: 'btn btn-primary'
+    %br
+  - unless status
+    - case status
+      - when 'requested'
+        = @friend.name + ' would like to be your friend.'
+        %span
+          = link_to 'Request '+ @friend.name, friend_accept_path(id: @friend.id)
+      - when 'pending'
+        = 'You have requested friendship from ' + @friend.name
+      - when 'accepted'
+        = @friend.name + ' is your friend.'
+
+= render 'friendship/friends'
+  
+%h2
+  = link_to 'My Blog', controller: 'articles'
