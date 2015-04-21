@@ -20,6 +20,7 @@
           %td
             = link_to requester.name, requester
             %br
+            = requester.id
             = link_to '(Accept', { :controller => 'friendship', :action => 'accept', :id => requester.id }
             = ' | '
             = link_to 'Decline)', { :controller => 'friendship', :action => 'decline',

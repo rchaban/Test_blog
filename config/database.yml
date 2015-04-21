@@ -1,23 +1,26 @@
 development:
-  user_name: root
-  password: roman17
-  adapter: mysql2
-  database: blogs_db_development
+  adapter: postgresql
+  encoding: unicode
+  username: svv
+  password: 80502457135
   pool: 5
-  timeout: 5000
+  host: localhost
+  database: blogs_db_develop
 
 test:
-  user_name: root
-  password: roman17
-  adapter: mysql2
-  database: blogs_db_test
+  adapter: postgresql
+  encoding: unicode
+  username: svv
+  password: 80502457135
   pool: 5
-  timeout: 5000
+  host: localhost
+  database: blogs_db_test
 
 production:
-  user_name: root
-  password: roman17
-  adapter: mysql2
-  database: blogs_db
+  adapter: postgresql
+  encoding: unicode
+  username: svv
+  password: 80502457135
   pool: 5
-  timeout: 5000
+  host: localhost
+  database: blogs_db_production

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem "haml-rails", "~> 0.9"
 gem 'rails', '4.2.0'
 
-gem 'mysql2'
+gem 'pg'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'sass-rails', '~> 5.0'
