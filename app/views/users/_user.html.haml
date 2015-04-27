@@ -3,5 +3,7 @@
   = link_to user.name, user
   - if current_user.admin? && !current_user?(user)
     | #{link_to "delete", user, method: :delete, data: { confirm: "You sure?" }}
-  - if current_user && !current_user?(user)
+  - if current_user && !current_user?(user) 
     | #{link_to "Add Friend", friendship_index_path(:friend_id => user), :method => :post}
+
+
