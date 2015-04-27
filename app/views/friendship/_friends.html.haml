@@ -8,6 +8,7 @@
       %tr
         %td
           = link_to friend.name, friend
+          = link_to "Mailbox", conversations_path, class: "btn btn-xs btn-info"
           %br
           = link_to 'Delete', { :controller => 'friendship', :action => 'delete',
           :id => friend.id }, data: { confirm: 'Do you really want to delete your friend?' }

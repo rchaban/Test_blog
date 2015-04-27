@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
            through: :friendships,
            source: :friend
 
+  has_many :conversations, :foreign_key => :sender_id         
+
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token

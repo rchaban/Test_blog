@@ -22,5 +22,9 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  resources :conversations do
+    resources :messages
+  end
   
 end
