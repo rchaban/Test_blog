@@ -20,18 +20,18 @@
         </div>
       </div>
     <% else %>
-      <div class="center hero-unit">
+      <div class="center">
         <h1>Welcome</h1>
         <h2>
-          This is the home page for the My blog. This is my page
-          <a href="https://vk.com/id242362828">Vkontakte</a>
+          This is the home page for the My blog.
         </h2>
       
         <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
       </div>
+
       
-      <%= link_to image_tag("images.jpg", alt: "BLOG"), about_path %>
     <% end %>  
   
   </body>
+
 </html>

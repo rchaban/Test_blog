@@ -2,7 +2,7 @@
   %aside.span4
     %section
       %h1
-        = gravatar_for @user
+        = image_tag @user.avatar.url(:small), class: "img-rounded"
         = @user.name
   .span8
     - if @user.microposts.any?
@@ -34,5 +34,3 @@
 
 = render 'friendship/friends'
   
-%h2
-  = link_to 'My Blog', controller: 'articles'

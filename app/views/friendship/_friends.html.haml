@@ -6,9 +6,10 @@
         = @user.friends.count
     - @user.friends.each do |friend|
       %tr
+        %td.ul_column
+          = image_tag friend.avatar.url(:thumb), class: "img-rounded"
         %td
           = link_to friend.name, friend
-          = link_to "Mailbox", conversations_path, class: "btn btn-xs btn-info"
           %br
           = link_to 'Delete', { :controller => 'friendship', :action => 'delete',
           :id => friend.id }, data: { confirm: 'Do you really want to delete your friend?' }
@@ -18,6 +19,8 @@
           = pluralize(@user.requested_friends.count, 'requested friend')
       - @user.requested_friends.each do |requester|
         %tr
+          %td.ul_column
+            = image_tag friend.avatar.url(:thumb), class: "img-rounded"
           %td
             = link_to requester.name, requester
             %br
@@ -32,6 +35,8 @@
           = pluralize(@user.pending_friends.count, 'pending friend')
       - @user.pending_friends.each do |pending_friends|
         %tr
+          %td.ul_column
+            = image_tag friend.avatar.url(:thumb), class: "img-rounded"
           %td
             = link_to pending_friends.name, pending_friends
             %br

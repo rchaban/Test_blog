@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
 
   has_secure_password
   validates :password, length: { minimum: 6 } 
+  
+  has_attached_file :avatar, :styles => {small: "500x500>", thumb: "500x500>"}, default_url: 'gravatar_1.png'
+  validates_attachment :avatar,
+                       :content_type => { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
+                       :size => {:in => 0..1.megabytes}
+
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
