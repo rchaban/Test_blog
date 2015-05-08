@@ -18,6 +18,16 @@ class User < ActiveRecord::Base
            through: :friendships,
            source: :friend
 
+  acts_as_messageable
+ 
+  def mailboxer_name
+    self.name
+  end
+ 
+  def mailboxer_email(object)
+    self.email
+  end         
+
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
