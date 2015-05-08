@@ -20,7 +20,7 @@
       - @user.requested_friends.each do |requester|
         %tr
           %td.ul_column
-            = image_tag friend.avatar.url(:thumb), class: "img-rounded"
+           
           %td
             = link_to requester.name, requester
             %br

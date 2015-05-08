@@ -21,6 +21,8 @@
   <% end %>
 </div>
 
+
+
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
