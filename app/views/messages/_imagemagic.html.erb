@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+  <div style="text-align: center;">
+    <h2>Steganography</h2>
+
+    <%if session.has_key?("error")%>
+      <p>
+        <%= session[:error] %>
+      </p>
+    <%end%>
+    <h3>Hide message:</h3>
+    <form  action="/hide" method="post" enctype="multipart/form-data" >
+      <input type="file" name="photo" size="66">
+      </br>
+      </br>
+      <textarea  placeholder="Enter message you want to hide..." name="message" style="height: 160px; width: 500px;"></textarea>	
+      </br>
+      </br>
+      <input type="submit" value="Hide message">
+    </form>
+   	</br>
+
+     <%if session.has_key?("success") %>
+      <p>
+        <%= session[:success] %>
+      </p>
+    <%end%>
+
+    <%if session.has_key?("image")%>
+      <p>
+        <h2>Picture with message</h2>
+      <img  src=<%="#{session[:image]}"%> >
+      </p>
+    <%end%>
+
+    <h3>Decrypt message:</h3>
+    <form  action="/show" method="post" enctype="multipart/form-data" >
+      <input type="file" name="photo" size="66">
+      </br>
+      </br>
+      <input type="submit" value="Show message">
+    </form>
+
+    <%if session.has_key?("decrypt_message")%>
+       <p>
+        This is your hidden message:
+       </br>
+        <%= session[:decrypt_message] %>
+      </p>
+    <%end%>
+
+  </div>  
+  
+  
+  
+
+</body>
+
+</html>

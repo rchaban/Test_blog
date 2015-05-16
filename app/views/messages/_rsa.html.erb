@@ -1,0 +1,49 @@
+<div class="bits_block">
+  <h2>RSA  
+    <select class="bits">
+      <option selected="selected" value="empty">-</option>
+      <option value="256">256</option>
+      <option value="512">512</option>
+      <option value="1024">1024</option>
+    </select>
+  </h2>
+</div>
+          
+<div class="plaintext_block">
+              
+
+  <div class="plaintext_input">
+    <p style="width: 245px;">Please enter message to encrypt:</p>
+    <textarea class="plaintext"></textarea> 
+  </div>
+
+  <div class="plaintext_key_sub_block">
+    <p>Public Key</p>
+    <textarea class="public_key_area" readonly></textarea>
+    <button class="ende_buttons" id="encrypt_button">encrypt</button> 
+  </div>
+
+  <div class="enc_plaintext_sub_block">
+    <p>Encrypted Text</p>
+    <textarea class="enc_text_area" readonly></textarea>
+  </div>  
+</div>
+<div class="cyphertext_block">
+
+  <div class="cyphertext_input">
+    <p style="width: 245px;">Please enter message to decrypt:</p> 
+    <textarea class="cyphertext"></textarea>
+  </div>
+
+  <div class="cypher_key_sub_block">
+    <p>Private Key</p>
+    <textarea class="private_key_area" readonly></textarea>
+    <button class="ende_buttons" id="decrypt_button">decrypt</button>
+  </div>
+
+  <div class="dec_plaintext_sub_block">
+      <p>Decrypted Text</p>
+      <textarea class="dec_text_area" readonly></textarea>
+  </div>  
+
+</div>
