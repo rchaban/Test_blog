@@ -3,4 +3,6 @@
   .span6.offset3
     = form_for(@user) do |f|
       = render 'fields', f: f
+      %p.center#chose_avatar Choose your avatar
+      .avatar= f.file_field :avatar
       = f.submit "Create my account", class: "btn btn-large btn-primary"

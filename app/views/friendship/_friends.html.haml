@@ -6,6 +6,7 @@
         = @user.friends.count
     - @user.friends.each do |friend|
       %tr
+        
         %td
           = link_to friend.name, friend
           %br
@@ -17,10 +18,12 @@
           = pluralize(@user.requested_friends.count, 'requested friend')
       - @user.requested_friends.each do |requester|
         %tr
+          
+           
           %td
             = link_to requester.name, requester
             %br
-            = requester.id
+           
             = link_to '(Accept', { :controller => 'friendship', :action => 'accept', :id => requester.id }
             = ' | '
             = link_to 'Decline)', { :controller => 'friendship', :action => 'decline',
@@ -31,6 +34,7 @@
           = pluralize(@user.pending_friends.count, 'pending friend')
       - @user.pending_friends.each do |pending_friends|
         %tr
+          
           %td
             = link_to pending_friends.name, pending_friends
             %br

@@ -5,7 +5,13 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 150px;
+  background-image: url(we1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
 }
 
 section {
@@ -17,12 +23,16 @@ textarea {
 }
 
 .center {
+  
   text-align: center;
+
 }
 
 .center h1 {
   margin-bottom: 10px;
 }
+
+
 
 /* typography */
 
@@ -31,19 +41,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 6em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 3em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: #000;
 }
 
 p {
@@ -75,16 +85,16 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #999;
+  border-top: 1px solid #000;
+  color: #000;
 }
 
 footer a {
-  color: #555;
+  color: #000;
 }
 
 footer a:hover {
-  color: #222;
+  color: #000;
 }
 
 footer small {
@@ -126,10 +136,16 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
+
+#chose_avatar {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.428571429;
+  color: #00010;
+  font-weight: bolder;
 }
+
+
 
 /* forms */
 
@@ -172,6 +188,10 @@ input {
   }
 }
 
+.ul_column {
+  padding: 10px;
+}
+
 
 /* microposts */
 
@@ -188,15 +208,31 @@ input {
   display: block;
 }
 .timestamp {
-  color: $grayLight;
+  color: #000;
 }
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
+
 aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+
+/*friends*/
+
+.table-bordered {
+  border: 0px 
+}
+
+.table {
+  width: 30px;
+}
+
+.table td {
+  border-left: 0px;
+}
+
+.table th {
+  border-left: 0px;
 }
