@@ -70,11 +70,12 @@ ActiveRecord::Schema.define(version: 20150508114007) do
   create_table "users", force: :cascade do |t|
     t.string   "name",                limit: 255
     t.string   "email",               limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.text     "public_key",          limit: 65535
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "password_digest",     limit: 255
     t.string   "remember_token",      limit: 255
-    t.boolean  "admin",               limit: 1,   default: false
+    t.boolean  "admin",               limit: 1,     default: false
     t.string   "avatar_file_name",    limit: 255
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4

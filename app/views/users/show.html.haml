@@ -31,6 +31,9 @@
         = 'You have requested friendship from ' + @friend.name
       - when 'accepted'
         = @friend.name + ' is your friend.'
+%button#setKeys Set keys
+%textarea{:id => "publicKey", :placeholder => 'Public Key'}
+%textarea{:id => "privateKey", :placeholder => "Private Key"}  
 
 = render 'friendship/friends'
   

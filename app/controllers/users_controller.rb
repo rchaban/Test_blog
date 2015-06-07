@@ -48,11 +48,20 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def setPublicKey
+    @user = User.find(session[:user_id])
+    @user.update_attribute("public_key", params[:public_key]) 
+    respond_to do |format|
+      msg = { :status => "ok", :message => "Success!" }
+      format.json { render :json => msg } # don't do msg.to_json
+    end
+  end
+
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :avatar)
+                                   :password_confirmation, :avatar, :public_key)
     end
 
     def admin_user

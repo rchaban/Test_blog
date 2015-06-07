@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/users/setPublicKey', to: 'users#setPublicKey', via: 'post'
   
 
   resources :friendship, only: [:create, :accept, :decline, :cancel, :delete] do
